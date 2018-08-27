@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        {% include 'base/css.html' %}
+    </head>
+    <body>
+    <ul class="nav navbar-nav">
+        {% include 'base/menu.html' %}
+    </ul>
+    {% block content %}
+
+    {% endblock %}
+
+    {% include 'base/footer.html' %}
+    {% include 'base/js.html' %}
+    </body>
+</html>

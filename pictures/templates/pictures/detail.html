@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    {% load i18n %}
+    <h1>{%  trans 'Detail' %}</h1>
+
+    <div class='row justify-content-center'>
+        <div class='col-12 col-md-6 '>
+                <h1>{% blocktrans %}{{ object.name }}{% endblocktrans %}</h1>
+            {{ object.timestamp|timesince }} {% trans 'ago' %}
+                {{ object.description|linebreaks }}
+            <br/>
+                {% if object.image %}
+                    <img src='{{ object.image.url }}' class='img-fluid' />
+                {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
