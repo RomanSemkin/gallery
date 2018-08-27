@@ -1,0 +1,10 @@
+<div class="card  box-shadow" style="width: 20rem; height: 16rem">
+    {% if obj.image %}
+        <a href="{{ obj.get_absolute_url }}">
+            <img class="card-img-top" src="{{ obj.image.url }}" alt="{{ obj.title }} logo">
+        </a>
+    {% endif %}
+    <div class="card-body">
+        <h6 class="card-title text-center text-muted">{{ obj.name }}</h6>
+    </div>
+</div>
