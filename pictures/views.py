@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.views.generic import ListView, DetailView, TemplateView
 
-from .models import Pictures
+from .models import Pictures, Images
 
 
 class AboutView(TemplateView):
@@ -39,3 +39,13 @@ class PicturesDetailSlugView(DetailView):
         return instance
 
         return instance
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            images = Images.objects.get(picture=self.object)
+        except Images.DoesNotExist:
+            # raise Http404("Not found..")
+            return context
+        context['images'] = images
+        return context

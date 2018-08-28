@@ -41,6 +41,16 @@ class Pictures(models.Model):
         return reverse("pictures:detail", kwargs={"slug": self.slug})
 
 
+class Images(models.Model):
+    picture = models.ForeignKey(Pictures, on_delete=True)
+    image1 = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
+    image2 = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
+    image3 = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
+
+    def __str__(self):
+        return self.picture.name
+
+
 def pre_save_receiver_page_model(sender, instance, *args, **kwargs):
     if instance.slug == 'slug' or instance.slug == '':
         instance.slug = unique_slug_generator(instance)
