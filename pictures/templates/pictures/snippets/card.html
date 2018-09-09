@@ -1,3 +1,4 @@
+{% load static %}
 <div class="card  box-shadow" style="width: 20rem; height: 16rem">
     {% if obj.image %}
         <a href="{{ obj.get_absolute_url }}">
@@ -5,6 +6,6 @@
         </a>
     {% endif %}
     <div class="card-body">
-        <h6 class="card-title text-center text-muted">{{ obj.name }}</h6>
+        <h6 class="card-title text-center text-muted">{{ obj.name|truncatechars:10|truncatewords:4 }}</h6>
     </div>
 </div>

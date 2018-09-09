@@ -1,0 +1,10 @@
+amqp==2.3.2
+billiard==3.5.0.4
+celery==4.2.1
+Django==2.1
+django-widget-tweaks==1.4.2
+kombu==4.2.1
+Pillow==5.2.0
+pytz==2018.5
+vine==1.1.4
+uwsgi==2.0.17.1
