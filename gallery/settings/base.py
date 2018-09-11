@@ -14,8 +14,8 @@ import os
 from os import environ
 from pathlib import Path
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = Path(__file__).parents[2]
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# BASE_DIR = Path(__file__).parents[2]
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -61,7 +61,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'templates'
+            os.path.join(BASE_DIR, 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -135,10 +135,11 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static_project"),
 ]
 
-STATIC_ROOT = '/var/artuser/static'
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/var/artuser/media'
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
 
-# CELERY_BROKER_URL = 'amqp://0.0.0.0'
-CELERY_BROKER_URL = 'amqp://guest:guest@rabbitmq:5672//'
+
+CELERY_BROKER_URL = 'amqp://0.0.0.0'
+# CELERY_BROKER_URL = 'amqp://guest:guest@rabbitmq:5672//'
