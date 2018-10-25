@@ -105,11 +105,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = environ.get('EMAIL_HOST')
 EMAIL_PORT = 587
-EMAIL_HOST_USER = environ.get('EMAIL_HOST')
+EMAIL_HOST_USER = environ.get('EMAIL_HOST_USER')
 # TODO пароль зашифоровать лучше
-EMAIL_HOST_PASSWORD = environ.get('EMAIL_PASSWORD')
+EMAIL_HOST_PASSWORD = environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 ADMIN_EMAIL = environ.get('ADMIN_EMAIL')
