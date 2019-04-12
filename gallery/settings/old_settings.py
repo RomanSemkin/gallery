@@ -99,14 +99,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = environ.get('EMAIL_HOST')
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'onda.art.gallery@gmail.com'
+EMAIL_HOST_USER = environ.get('EMAIL_HOST_USER')
 # TODO пароль зашифоровать лучше
-EMAIL_HOST_PASSWORD = 'Lakhta2018'
+EMAIL_HOST_PASSWORD = environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-ADMIN_EMAIL = 'utochkina.evgeniia@gmail.com'
+ADMIN_EMAIL = environ.get('ADMIN_EMAIL')
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
